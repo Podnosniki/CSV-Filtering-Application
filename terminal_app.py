@@ -47,12 +47,12 @@ def process_folder(folder_path, config_file_path):
                 key, value = line.split('=', 1)
                 key = key.strip()
                 value = value.strip().strip('[]').replace("'", "")
-                if key == 'columns to remove':
+                if key == 'columns_to_remove':
                     config_dict[key] = [col.strip() for col in value.split(',')]
                 elif key in ['data_search_column', 'keywords']:
                     config_dict[key] = value.split(', ') if key == 'keywords' else value
 
-        columns_to_remove = config_dict.get('columns to remove', [])
+        columns_to_remove = config_dict.get('columns_to_remove', [])
         search_column = config_dict.get('data_search_column', '')
         keywords = config_dict.get('keywords', [])
 
